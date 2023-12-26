@@ -42,8 +42,14 @@
         </ul>
     </div>
     <div class="random">
-        <h2>Rollo aleatorio</h2>
-        <p>Nombre del rollo</p>
+        <h2 >Rollo aleatorio</h2>
+        <div class="boton">
+
+            <p class="tituloRollo">{{nombreRollo}}</p>
+            <button type="button" style="background-color: orange; border-color: black; border-radius: 20px; font-size: 20px; cursor: pointer; padding: 0rem; margin: 1rem;" (click)="generarRolloAleatorio()">
+                Cambiar Rollo
+            </button>
+        </div>
     </div>
 </section>
 

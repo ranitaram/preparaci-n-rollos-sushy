@@ -13,7 +13,8 @@ import { HandrollComponent } from './handroll/handroll.component';
   ],
   imports: [
     CommonModule,
-    PagesRoutingModule
+    PagesRoutingModule,
+    
   ],
   exports:[
     RollsComponent,
