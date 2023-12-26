@@ -1,1 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+:root {
+    --primario: #13005A;
+    --secundario: #03C988;
+    --gris: #3b3b3b;
+    --blanco: #ffffff;
+    --negro: #1f1e1e;
+    --azulBajo: #1C82AD;
+    --azulRey: #00337C;
+    --grisClaro: #e1e1e1;
+  
+    --separacion: 5rem;
+  
+    --fuentePrincipal: 'Roboto', sans-serif;
+    --fuenteSecundaria: 'Lato', sans-serif;
+  }
+  
+  html {
+    box-sizing: border-box;
+    font-size: 62.5%; /*convierte 1 rem en 10 px */
+  }
+  *, *::before, *::after {
+    box-sizing: inherit;
+  }
+  
+  body {
+    margin: 0;
+    font-family: var(--fuentePrincipal);
+    font-size: 1.6rem;
+    line-height: 1.5;
+    
+  }
+  
+  /* GLOBALES */
+  
+  .contenedor {
+    max-width: 120rem;
+    width: 90%;
+    margin: 0;
+  }
+  
+  h1, h2, h3 {
+    font-weight: 900;
+    font-family: var(--fuenteSecundaria);
+    margin: calc(var(--separacion) / 2);
+  }
+  h1 {
+    font-size: 4.4rem;
+  }
+  h2 {
+    font-size: 3.6rem;
+  }
+  h3 {
+    font-size: 2.8rem;
+  }
+  img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+  }
+  
+  /* Utilidades */
+  .text-align {
+  text-align: center;  
+  } 
