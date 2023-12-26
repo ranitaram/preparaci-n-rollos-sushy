@@ -5,9 +5,9 @@
         <h2>Ingredientes para rollos</h2>
 
         <ul class="lista">
-            <li class="inside">Avocado</li>
-            <li class="topping">Bonito flakes</li>
-            <li class="inside">Carrot</li>
+            <li class="inside" (click)="anadirIngrediente($event)">Avocado</li>
+            <li class="topping"  (click)="anadirIngrediente($event)">Bonito flakes</li>
+            <li class="inside"  (click)="anadirIngrediente($event)">Carrot</li>
             <li class="inside">Crab mayo</li>
             <li class="inside">Cream cheese</li>
             <li class="inside">Cucumber</li>
@@ -43,6 +43,7 @@
     </div>
     <div class="random">
         <h2 >Rollo aleatorio</h2>
+      
         <div class="boton">
 
             <p class="tituloRollo">{{nombreRollo}}</p>
@@ -53,3 +54,10 @@
     </div>
 </section>
 
+<div class="ingredientes-seleccionados">
+    <h2>Ingredientes seleccionados</h2>
+    <ul>
+        <li *ngFor="let ingrediente of ingredientesSeleccionados">{{ ingrediente }}</li>
+    </ul>
+    <button type="button" (click)="validarRollo()">Validar Rollo</button>
+</div>
