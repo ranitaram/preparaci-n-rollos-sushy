@@ -1,13 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 
+
+interface Rollo {
+  nombre: string;
+  ingredientes: string[];
+}
 @Component({
   selector: 'app-rolls',
   templateUrl: './rolls.component.html',
   styleUrls: ['./rolls.component.css']
 })
+
 export class RollsComponent implements OnInit {
+  //rolloAleatorio: any;
+
+    rolloAleatorio: Rollo | null;
   
   constructor(){
+    this.rolloAleatorio = null;
     this.ingredientesSeleccionados = [];
     this.nombreRollo = ''
   }
@@ -54,8 +64,29 @@ export class RollsComponent implements OnInit {
 
   // Función que valida el rollo
   validarRollo() {
-    // Aquí debes implementar la lógica de validación del rollo
-    // Puedes comparar los ingredientes seleccionados con los ingredientes del rollo aleatorio
-    // y mostrar un mensaje al usuario indicando si el rollo está armado correctamente o no.
+    if (this.rolloAleatorio) {
+      // Comprueba si "rolloAleatorio" es distinto de "undefined"
+      if (this.rolloAleatorio !== undefined) {
+        // Asignamos "rolloAleatorio" a una variable local
+        const rolloAleatorioLocal = this.rolloAleatorio;
+
+        const ingredientesCorrectos = rolloAleatorioLocal.ingredientes.every(ingrediente => this.ingredientesSeleccionados.includes(ingrediente));
+
+        if (ingredientesCorrectos) {
+          // El rollo está armado correctamente
+          alert('El rollo está armado correctamente.');
+        } else {
+          // El rollo no está armado correctamente
+          alert('El rollo no está armado correctamente.');
+        }
+      } else {
+        // "rolloAleatorio" es "undefined"
+        alert('No hay rollo aleatorio disponible.');
+      }
+    } else {
+      // "rolloAleatorio" es "undefined"
+      alert('No hay rollo aleatorio disponible.');
+    }
   }
+  
 }
