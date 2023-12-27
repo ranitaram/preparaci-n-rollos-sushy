@@ -49,10 +49,11 @@ export class RollsComponent implements OnInit {
   ingredientesSeleccionados: string[];
 
   //Funcion que genera un rollo aleatorio
-  generarRolloAleatorio(){
-    const rolloAleatorio = Math.floor(Math.random() * this.rollos.length);
-    this.nombreRollo = this.rollos[rolloAleatorio].nombre;
-  }
+  generarRolloAleatorio() {
+    const rolloAleatorioIndex = Math.floor(Math.random() * this.rollos.length);
+    this.rolloAleatorio = this.rollos[rolloAleatorioIndex]; // Asigna el objeto Rollo completo
+    this.nombreRollo = this.rolloAleatorio.nombre;
+}
 
   //funcion que añade un ingrediente al rollo
   anadirIngrediente(event: MouseEvent){
@@ -65,23 +66,18 @@ export class RollsComponent implements OnInit {
   // Función que valida el rollo
   validarRollo() {
     if (this.rolloAleatorio) {
-      // Comprueba si "rolloAleatorio" es distinto de "undefined"
-      if (this.rolloAleatorio !== undefined) {
-        // Asignamos "rolloAleatorio" a una variable local
-        const rolloAleatorioLocal = this.rolloAleatorio;
+      // Comprueba si los ingredientes seleccionados coinciden con los ingredientes del rollo aleatorio
+      const ingredientesRolloAleatorio = this.rolloAleatorio.ingredientes;
+      const ingredientesSeleccionados = this.ingredientesSeleccionados;
 
-        const ingredientesCorrectos = rolloAleatorioLocal.ingredientes.every(ingrediente => this.ingredientesSeleccionados.includes(ingrediente));
+      const coinciden = ingredientesRolloAleatorio.every(ingrediente => ingredientesSeleccionados.includes(ingrediente));
 
-        if (ingredientesCorrectos) {
-          // El rollo está armado correctamente
-          alert('El rollo está armado correctamente.');
-        } else {
-          // El rollo no está armado correctamente
-          alert('El rollo no está armado correctamente.');
-        }
+      if (coinciden) {
+        // El rollo está armado correctamente
+        alert('El rollo está armado correctamente.');
       } else {
-        // "rolloAleatorio" es "undefined"
-        alert('No hay rollo aleatorio disponible.');
+        // Los ingredientes seleccionados no coinciden con los ingredientes del rollo aleatorio
+        alert('Los ingredientes seleccionados no coinciden con los ingredientes del rollo aleatorio.');
       }
     } else {
       // "rolloAleatorio" es "undefined"

@@ -18,6 +18,7 @@
             <li class="inside" (click)="anadirIngrediente($event)">Green laaf</li>
             <li class="outside" (click)="anadirIngrediente($event)">Green onion</li>
             <li class="topping" (click)="anadirIngrediente($event)">Golden crunchy</li>
+            <li class="topping" (click)="anadirIngrediente($event)">Ikura</li>
             <li class="topping" (click)="anadirIngrediente($event)">Masago</li>
             <li class="outside" (click)="anadirIngrediente($event)">Salmon</li>
             <li class="inside" (click)="anadirIngrediente($event)">Salmon skin</li>
@@ -37,7 +38,6 @@
             <li class="topping" (click)="anadirIngrediente($event)">Yuzu cream sauce</li>
             <li class="topping" (click)="anadirIngrediente($event)">Jalapeño</li>
             <li class="inside" (click)="anadirIngrediente($event)">Soft shell crab tempure</li>
-            <li class="topping" (click)="anadirIngrediente($event)">Ikura</li>
            
         </ul>
     </div>
@@ -51,13 +51,12 @@
                 Cambiar Rollo
             </button>
         </div>
+        <div class="ingredientes-seleccionados">
+            <h2>Ingredientes seleccionados</h2>
+            <ul>
+                <li *ngFor="let ingrediente of ingredientesSeleccionados">{{ ingrediente }}</li>
+            </ul>
+            <button type="button" (click)="validarRollo()">Validar Rollo</button>
+        </div>
     </div>
 </section>
-
-<div class="ingredientes-seleccionados">
-    <h2>Ingredientes seleccionados</h2>
-    <ul>
-        <li *ngFor="let ingrediente of ingredientesSeleccionados">{{ ingrediente }}</li>
-    </ul>
-    <button type="button" (click)="validarRollo()">Validar Rollo</button>
-</div>
