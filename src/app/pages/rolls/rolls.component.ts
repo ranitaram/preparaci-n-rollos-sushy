@@ -19,7 +19,9 @@ export class RollsComponent implements OnInit {
   constructor(){
     this.rolloAleatorio = null;
     this.ingredientesSeleccionados = [];
-    this.nombreRollo = ''
+    this.nombreRollo = '';
+
+   
   }
   
 
@@ -109,6 +111,7 @@ export class RollsComponent implements OnInit {
       ingredientes: ['Avocado', 'Spicy tuna', 'Cream cheese', 'Tuna', 'Fried onion', 'Yuzu cream sauce', 'Spicy sauce']
     }
   ];
+  
 
   //El nombre del rollo aleatorio
   nombreRollo: string 
