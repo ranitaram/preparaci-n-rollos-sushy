@@ -19,6 +19,7 @@
             <li class="ingrediente outside" (click)="anadirIngrediente($event)">Green onion</li>
             <li class="ingrediente topping" (click)="anadirIngrediente($event)">Golden crunchy</li>
             <li class="ingrediente topping" (click)="anadirIngrediente($event)">Ikura</li>
+            <li class="ingrediente topping" (click)="anadirIngrediente($event)">Jalapeño</li>
             <li class="ingrediente topping" (click)="anadirIngrediente($event)">Masago</li>
             <li class="ingrediente outside" (click)="anadirIngrediente($event)">Salmon</li>
             <li class="ingrediente inside" (click)="anadirIngrediente($event)">Salmon skin</li>
@@ -36,21 +37,19 @@
             <li class="ingrediente outside" (click)="anadirIngrediente($event)">Tuna</li>
             <li class="ingrediente outside" (click)="anadirIngrediente($event)">Yellowtail</li>
             <li class="ingrediente topping" (click)="anadirIngrediente($event)">Yuzu cream sauce</li>
-            <li class="ingrediente topping" (click)="anadirIngrediente($event)">Jalapeño</li>
             <li class="ingrediente inside" (click)="anadirIngrediente($event)">Soft shell crab tempure</li>
-           ingrediente 
+          
         </ul>
     </div>
+
     <div class="random">
         <h2 class="tituloRollo" >{{nombreRollo}}</h2>
-      
         <div class="boton">
-
-            
             <button type="button" class="botn-random boton-ingrediente" style="align-content: center; margin-left: 3rem;" (click)="generarRolloAleatorio()">
                 Cambiar Rollo
             </button>
         </div>
+
         <div class="ingredientes-seleccionados">
           
             <h2 class="subtitulo">Ingredientes seleccionados</h2>
@@ -59,6 +58,7 @@
                     'ingrediente-seleccionado': true
                   }">{{ ingrediente }}</li>
             </ul>
+            <button #botonDeshacer *ngIf="botonDeshacer" class="boton-eliminar-ingrediente" (click)="deshacerIngrediente()">Eliminar ingrediente</button>
             <button type="button" (click)="validarRollo()" class="boton-validar">Validar Rollo</button>
         </div>
     </div>

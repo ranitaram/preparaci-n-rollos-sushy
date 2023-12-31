@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
+
 
 
 interface Rollo {
@@ -14,17 +16,27 @@ interface Rollo {
 export class RollsComponent implements OnInit {
   //rolloAleatorio: any;
 
+  botonDeshacer: HTMLElement | null = null;
+  deshacerIngrediente: () => void = () => {
+    // Elimina el último ingrediente del arreglo de ingredientes seleccionados
+    if (this.ingredientesSeleccionados.length > 0) {
+      this.ingredientesSeleccionados.pop();
+    }
+  };
+  elementos: ElementRef<HTMLElement>;
+
     rolloAleatorio: Rollo | null;
   
-  constructor(){
+  constructor(elementos: ElementRef<HTMLElement>){
     this.rolloAleatorio = null;
     this.ingredientesSeleccionados = [];
     this.nombreRollo = '';
-
+    this.elementos = elementos;
    
   }
   
 
+  
   
   ngOnInit() {
     this.generarRolloAleatorio();
@@ -133,6 +145,15 @@ export class RollsComponent implements OnInit {
     const ingredienteSeleccionado = (event.target as HTMLElement).textContent;
    if (ingredienteSeleccionado){
     this.ingredientesSeleccionados.push(ingredienteSeleccionado);
+     // Si el arreglo de ingredientes seleccionados tiene más de un elemento, agrega un botón de deshacer
+     if (this.ingredientesSeleccionados.length > 1){
+      this.botonDeshacer = document.createElement('button');
+      this.botonDeshacer.textContent = 'Deshacer';
+      this.botonDeshacer.addEventListener('click', this.deshacerIngrediente);
+      // Convertir el valor de la propiedad 'elementos' a un objeto 'HTMLElement'
+      const elemento = this.elementos.nativeElement;
+      elemento.appendChild(this.botonDeshacer);
+    }
    }
   }
 
@@ -143,19 +164,32 @@ export class RollsComponent implements OnInit {
       // Comprueba si los ingredientes seleccionados son exactamente los mismos que los ingredientes del rollo aleatorio
       const ingredientesRolloAleatorio = this.rolloAleatorio.ingredientes;
       const ingredientesSeleccionados = this.ingredientesSeleccionados;
-
+  
       if (ingredientesSeleccionados.length === ingredientesRolloAleatorio.length && ingredientesSeleccionados.every(ingrediente => ingredientesRolloAleatorio.includes(ingrediente))) {
         // El rollo está armado correctamente
-        alert('El rollo está armado correctamente.');
+        Swal.fire({
+          title: '¡Éxito!',
+          text: 'El rollo está armado correctamente.',
+          icon: 'success',
+        });
       } else {
         // Los ingredientes seleccionados no coinciden con los ingredientes del rollo aleatorio
-        alert('Los ingredientes seleccionados no coinciden con los ingredientes del rollo aleatorio.');
+        Swal.fire({
+          title: '¡Error!',
+          text: 'Los ingredientes seleccionados no coinciden con los ingredientes del rollo',
+          icon: 'error',
+          
+        });
       }
     } else {
       // "rolloAleatorio" es "undefined"
-      alert('No hay rollo aleatorio disponible.');
+      Swal.fire({
+        title: '¡Advertencia!',
+        text: 'No hay rollo aleatorio disponible.',
+        icon: 'warning',
+      });
     }
-}
+  }
 
   
 }
