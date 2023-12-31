@@ -50,3 +50,39 @@
     margin-left: 1rem;
     
 }
+
+.ingredientes-seleccionados {
+    position: sticky;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.ingrediente-seleccionado.inside {
+    background-color: red;
+    padding: 1rem;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  
+  .ingrediente-seleccionado.outside {
+    background-color: greenyellow;
+    padding: 1rem;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  
+  .ingrediente-seleccionado.topping {
+    background-color: pink;
+    padding: 1rem;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+  }
