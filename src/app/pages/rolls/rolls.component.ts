@@ -44,6 +44,8 @@ export class RollsComponent implements OnInit {
     
   }
 
+ 
+
   //Los rollos disponibles
   private rollos = [
     {
@@ -140,15 +142,17 @@ export class RollsComponent implements OnInit {
     this.ingredientesSeleccionados = []; //Reinicia los valores de  los ingredientes
 }
 
+
   //funcion que añade un ingrediente al rollo
   anadirIngrediente(event: MouseEvent){
     const ingredienteSeleccionado = (event.target as HTMLElement).textContent;
    if (ingredienteSeleccionado){
     this.ingredientesSeleccionados.push(ingredienteSeleccionado);
+   
      // Si el arreglo de ingredientes seleccionados tiene más de un elemento, agrega un botón de deshacer
      if (this.ingredientesSeleccionados.length > 1){
       this.botonDeshacer = document.createElement('button');
-      this.botonDeshacer.textContent = 'Deshacer';
+     // this.botonDeshacer.textContent = 'Deshacer';
       this.botonDeshacer.addEventListener('click', this.deshacerIngrediente);
       // Convertir el valor de la propiedad 'elementos' a un objeto 'HTMLElement'
       const elemento = this.elementos.nativeElement;
@@ -175,8 +179,8 @@ export class RollsComponent implements OnInit {
       } else {
         // Los ingredientes seleccionados no coinciden con los ingredientes del rollo aleatorio
         Swal.fire({
-          title: '¡Error!',
-          text: 'Los ingredientes seleccionados no coinciden con los ingredientes del rollo',
+          title: '¡Incorrecto!',
+          text: 'Los ingredientes no son correctos',
           icon: 'error',
           
         });
