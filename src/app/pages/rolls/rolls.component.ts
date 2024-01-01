@@ -49,7 +49,7 @@ export class RollsComponent implements OnInit {
   //Los rollos disponibles
   private rollos = [
     {
-      nombre: 'Golden Crunchy',
+      nombre: 'Golden Crunchy Roll',
       ingredientes: ['Avocado', 'Shrimp mayo', 'Golden crunchy', 'Eel sauce', 'Spicy sauce']
     },
     {
@@ -57,55 +57,59 @@ export class RollsComponent implements OnInit {
       ingredientes: ['Cucumber', 'Ikura']
     },
     {
-      nombre: 'Spider',
+      nombre: 'Spider Roll',
       ingredientes: ['Shrimp mayo', 'Green leaf', 'Cucumber', 'Carrot', 'Soft shell crab tempure', 'Crunchy', 'Eel sauce']
     },
     {
-      nombre: 'Crunchy',
+      nombre: 'Crunchy Roll',
       ingredientes: ['Avocado', 'Shrimp mayo', 'Shrimp tempra', 'Eel sauce', 'Crunchy']
     },
     {
-      nombre: 'Real crab california',
+      nombre: 'Real crab california Roll',
       ingredientes: ['Avocado', 'Crab mayo']
     },
     {
-      nombre: 'Shrimp avocado',
+      nombre: 'Shrimp avocado Roll',
       ingredientes: ['Avocado', 'Shrimp mayo', 'Shrimp', 'Avocado', 'Yuzu cream sauce']
     },
     {
-      nombre: 'Philadelphia',
+      nombre: 'Philadelphia Roll',
       ingredientes: ['Avocado', 'Shrimp mayo', 'Cream cheese', 'Salmon']
     },
     {
-      nombre: 'Spicy tuna',
+      nombre: 'Spicy tuna Roll',
       ingredientes: ['Cucumber', 'Spicy tuna']
     },
     {
-      nombre: 'Caterpillar',
+      nombre: 'Caterpillar Roll',
       ingredientes: ['Cucumber', 'Eel', 'Avocado', 'Sesame', 'Eel sauce']
     },
     {
-      nombre: 'Salmon golden crunchy',
+      nombre: 'Salmon golden crunchy Roll',
       ingredientes: ['Cucumber', 'Spicy salmon', 'Golden crunchy', 'Eel sauce', 'Spicy sauce']
     },
     {
-      nombre: 'Red dragon',
+      nombre: 'Red dragon Roll',
       ingredientes: ['Avocado', 'Shrimp mayo', 'Tuna', 'Spicy sauce', 'Cruncy']
     },
     {
-      nombre: 'Tiger',
+      nombre: 'Tiger Roll',
       ingredientes: ['Avocado', 'Shrip mayo', 'Shrimp', 'Spicy sauce', 'Eel sauce', 'Jalapeño']
     },
     {
-      nombre: 'Spicy popcorn shrimp',
+      nombre: 'Spicy popcorn shrimp Roll',
       ingredientes: ['Avocado', 'Shrimp mayo', 'Popcorn Shrimp', 'Spicy sauce', 'Masago', 'Green onion']
     },
     {
-      nombre: 'Kura',
+      nombre: 'Spicy Garlic popcorn shrimp Roll',
+      ingredientes: ['Avocado', 'Shrimp mayo', 'Popcorn Shrimp', 'Shichimi Garlic', 'Masago', 'Green onion']
+    },
+    {
+      nombre: 'Kura Roll',
       ingredientes: ['Avocado', 'Shrimp mayo', 'Seared salmon', 'Salt', 'Cut lemon']
     },
     {
-      nombre: 'Rainbow',
+      nombre: 'Rainbow Roll',
       ingredientes: ['Avocado', 'Shrimp mayo', 'Tuna', 'Red Snapper', 'Shrimp', 'Avocado', 'Yellowtail', 'Salmon']
     },
     {
@@ -117,11 +121,11 @@ export class RollsComponent implements OnInit {
       ingredientes: ['Cucumber']
     },
     {
-      nombre: 'Salmon skin',
+      nombre: 'Salmon skin Roll',
       ingredientes: ['Green leaf', 'Cucumber', 'Carrot', 'Salmon skin', 'Bonito flakes']
     },
     {
-      nombre: 'Texan',
+      nombre: 'Texan Roll',
       ingredientes: ['Avocado', 'Spicy tuna', 'Cream cheese', 'Tuna', 'Fried onion', 'Yuzu cream sauce', 'Spicy sauce']
     }
   ];
