@@ -26,6 +26,7 @@ export class RollsComponent implements OnInit {
   elementos: ElementRef<HTMLElement>;
 
     rolloAleatorio: Rollo | null;
+  img: any;
   
   constructor(elementos: ElementRef<HTMLElement>){
     this.rolloAleatorio = null;
@@ -89,7 +90,7 @@ export class RollsComponent implements OnInit {
       ingredientes: ['Cucumber', 'Spicy salmon', 'Golden crunchy', 'Eel sauce', 'Spicy sauce']
     },
     {
-      nombre: 'Red dragon Roll',
+      nombre: 'Red Dragon Roll',
       ingredientes: ['Avocado', 'Shrimp mayo', 'Tuna', 'Spicy sauce', 'Cruncy']
     },
     {
@@ -97,11 +98,11 @@ export class RollsComponent implements OnInit {
       ingredientes: ['Avocado', 'Shrip mayo', 'Shrimp', 'Spicy sauce', 'Eel sauce', 'Jalapeño']
     },
     {
-      nombre: 'Spicy popcorn shrimp Roll',
+      nombre: 'Spicy Popcorn Shrimp Roll',
       ingredientes: ['Avocado', 'Shrimp mayo', 'Popcorn Shrimp', 'Spicy sauce', 'Masago', 'Green onion']
     },
     {
-      nombre: 'Spicy Garlic popcorn shrimp Roll',
+      nombre: 'Spicy Garlic Popcorn Shrimp Roll',
       ingredientes: ['Avocado', 'Shrimp mayo', 'Popcorn Shrimp', 'Shichimi Garlic', 'Masago', 'Green onion']
     },
     {
@@ -142,6 +143,8 @@ export class RollsComponent implements OnInit {
     const rolloAleatorioIndex = Math.floor(Math.random() * this.rollos.length);
     this.rolloAleatorio = this.rollos[rolloAleatorioIndex]; // Asigna el objeto Rollo completo
     this.nombreRollo = this.rolloAleatorio.nombre;
+     // Actualiza la propiedad src de la etiqueta img
+     this.img.src = `assets/rollos/${this.rolloAleatorio.nombre}.png`;
 
     this.ingredientesSeleccionados = []; //Reinicia los valores de  los ingredientes
 }
