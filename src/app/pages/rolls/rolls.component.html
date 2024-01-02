@@ -44,9 +44,9 @@
     </div>
 
     <div class="random">
-        <h2 class="tituloRollo" >{{nombreRollo}}</h2>
+        <h2  >{{nombreRollo}}</h2>
         <div class="boton">
-            <button type="button" class="botn-random boton-ingrediente" style="align-content: center; margin-left: 3rem;" (click)="generarRolloAleatorio()">
+            <button type="button" class="boton-cambiar-rollo boton-ingrediente" style="align-content: center; margin-left: 3rem;" (click)="generarRolloAleatorio()">
                 Cambiar Rollo
             </button>
         </div>
@@ -64,6 +64,9 @@
 
             <button #botonDeshacer *ngIf="botonDeshacer" class="boton-eliminar-ingrediente" (click)="deshacerIngrediente()">Eliminar ingrediente</button>
             <button type="button" (click)="validarRollo()" class="boton-validar">Validar Rollo</button>
+            <button type="button" class="boton-cambiar-rollo boton-ingrediente" style="align-content: center; margin-left: 3rem;" (click)="generarRolloAleatorio()">
+                Cambiar Rollo
+            </button>
         </div>
     </div>
 </section>
