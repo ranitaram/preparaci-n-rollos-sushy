@@ -1,7 +1,7 @@
 <router-outlet></router-outlet>
 
 <section class="container">
-    <div class="ingredientes">
+    <div class="left-column">
         <h2>Ingredientes</h2>
         <h3>Selecciona los ingredientes correctos del rollo que esta a la derecha</h3>
 
@@ -43,30 +43,32 @@
         </ul>
     </div>
 
-    <div class="random">
-        <h2  >{{nombreRollo}}</h2>
-        <div class="boton">
-            <button type="button" class="boton-cambiar-rollo boton-ingrediente" style="align-content: center; margin-left: 3rem;" (click)="generarRolloAleatorio()">
-                Cambiar Rollo
-            </button>
-        </div>
+    <div class="right-column">
 
-        <div class="ingredientes-seleccionados">
-          
-            <h2 class="subtitulo">Ingredientes seleccionados</h2>
-            <ul>
-                <li *ngFor="let ingrediente of ingredientesSeleccionados" [ngClass]="{
-                    'ingrediente-seleccionado': true
-                  }">{{ ingrediente }}</li>
-            </ul>
-            
-            <img src="assets/rollos/{{ formatNombreRollo(rolloAleatorio?.nombre) }}.png" alt="Imagen de {{ nombreRollo }}" style="width: 100px; height: 100px;">
-
-            <button #botonDeshacer *ngIf="botonDeshacer" class="boton-eliminar-ingrediente" (click)="deshacerIngrediente()">Eliminar ingrediente</button>
-            <button type="button" (click)="validarRollo()" class="boton-validar">Validar Rollo</button>
-            <button type="button" class="boton-cambiar-rollo boton-ingrediente" style="align-content: center; margin-left: 3rem;" (click)="generarRolloAleatorio()">
-                Cambiar Rollo
-            </button>
+        <div class="random">
+            <h2  >{{nombreRollo}}</h2>
+            <div class="boton">
+                <button type="button" class="boton-cambiar-rollo boton-ingrediente" style="align-content: center; margin-left: 3rem;" (click)="generarRolloAleatorio()">
+                    Cambiar Rollo
+                </button>
+            </div>
+    
+            <div class="ingredientes-seleccionados">
+              
+                <h2 class="subtitulo">Ingredientes seleccionados</h2>
+                <ul>
+                    <li *ngFor="let ingrediente of ingredientesSeleccionados" [ngClass]="{
+                        'ingrediente-seleccionado': true
+                      }">{{ ingrediente }}</li>
+                </ul>
+                
+                <img src="assets/rollos/{{ formatNombreRollo(rolloAleatorio?.nombre) }}.png" alt="Imagen de {{ nombreRollo }}" style="width: 100px; height: 100px;">
+    
+                <button #botonDeshacer *ngIf="botonDeshacer" class="boton-eliminar-ingrediente" (click)="deshacerIngrediente()">Eliminar ingrediente</button>
+                <button type="button" (click)="validarRollo()" class="boton-validar">Validar Rollo</button>
+               
+            </div>
         </div>
     </div>
+
 </section>

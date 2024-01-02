@@ -30,12 +30,46 @@
     margin-top: 1rem;
     border-radius: 10px;
 }
-.container { 
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Columnas automáticas con un ancho mínimo de 150px */
-    gap: 1rem;
-    padding: 0.5rem;
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100%;
 }
+
+.left-column-fixed {
+    max-width: calc(100% - 400px); /* Resta el ancho de la columna derecha */
+    flex-shrink: 1;
+    padding: 2px;
+    box-sizing: border-box;
+}
+
+.right-column {
+    width: 300px;
+    background-color: #f0f0f0;
+    overflow-y: auto;
+    position: sticky;
+    flex-shrink: 1;
+    top: 0;
+    z-index: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .left-column-fixed {
+        max-width: 500px;
+    }
+
+    .left-column,
+    .right-column {
+        width: 50%;
+    }
+}
+
+
 
 h3 {
     color: #800080; /* Púrpura oscuro */
@@ -64,7 +98,7 @@ h3 {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center; /* Cambiado de align-items: flex-end a align-items: center */
-    max-height: 200px;
+    max-height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -72,12 +106,14 @@ h3 {
 .ingredientes-seleccionados-flex li {
     width: 100%;
     margin-bottom: 10px;
+    
 }
 
 .ingrediente-seleccionado {
+    
     background-color: #4a90e2; /* Azul real */
     padding: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: rem;
     color: white;
     display: flex;
     justify-content: center;
@@ -194,4 +230,5 @@ h3 {
     font-weight: 600;
     margin-bottom: 10px;
 }
+
 
