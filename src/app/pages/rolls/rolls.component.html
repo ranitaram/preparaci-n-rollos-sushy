@@ -59,7 +59,9 @@
                     'ingrediente-seleccionado': true
                   }">{{ ingrediente }}</li>
             </ul>
-            <img src="assets/rollos/${this.rolloAleatorio.nombre}.png" alt="Imagen de {{nombreRollo}}" style="width: 100px; height: 100px;">
+            
+            <img src="assets/rollos/{{ formatNombreRollo(rolloAleatorio?.nombre) }}.png" alt="Imagen de {{ nombreRollo }}" style="width: 100px; height: 100px;">
+
             <button #botonDeshacer *ngIf="botonDeshacer" class="boton-eliminar-ingrediente" (click)="deshacerIngrediente()">Eliminar ingrediente</button>
             <button type="button" (click)="validarRollo()" class="boton-validar">Validar Rollo</button>
         </div>

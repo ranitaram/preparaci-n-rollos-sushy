@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import Swal from 'sweetalert2';
 
 
@@ -14,39 +14,41 @@ interface Rollo {
 })
 
 export class RollsComponent implements OnInit {
-  //rolloAleatorio: any;
+
 
   botonDeshacer: HTMLElement | null = null;
-  deshacerIngrediente: () => void = () => {
-    // Elimina el último ingrediente del arreglo de ingredientes seleccionados
-    if (this.ingredientesSeleccionados.length > 0) {
-      this.ingredientesSeleccionados.pop();
-    }
-  };
+
   elementos: ElementRef<HTMLElement>;
 
-    rolloAleatorio: Rollo | null;
-  img: any;
+  rolloAleatorio: Rollo | null;
+
+     //Los ingredientes seleccionados por el usuario
+  ingredientesSeleccionados: string[];
+  
   
   constructor(elementos: ElementRef<HTMLElement>){
+   
     this.rolloAleatorio = null;
     this.ingredientesSeleccionados = [];
     this.nombreRollo = '';
     this.elementos = elementos;
    
   }
-  
 
-  
-  
-  ngOnInit() {
-    this.generarRolloAleatorio();
-
-    
-  }
-
+  deshacerIngrediente: () => void = () => {
+    // Elimina el último ingrediente del arreglo de ingredientes seleccionados
+    if (this.ingredientesSeleccionados.length > 0) {
+      this.ingredientesSeleccionados.pop();
+    }
+  };
  
-
+  ngOnInit() {
+   
+    this.generarRolloAleatorio();    
+  }
+  
+ 
+  
   //Los rollos disponibles
   private rollos = [
     {
@@ -66,11 +68,11 @@ export class RollsComponent implements OnInit {
       ingredientes: ['Avocado', 'Shrimp mayo', 'Shrimp tempra', 'Eel sauce', 'Crunchy']
     },
     {
-      nombre: 'Real crab california Roll',
+      nombre: 'Real Crab California Roll',
       ingredientes: ['Avocado', 'Crab mayo']
     },
     {
-      nombre: 'Shrimp avocado Roll',
+      nombre: 'Shrimp Avocado Roll',
       ingredientes: ['Avocado', 'Shrimp mayo', 'Shrimp', 'Avocado', 'Yuzu cream sauce']
     },
     {
@@ -78,7 +80,7 @@ export class RollsComponent implements OnInit {
       ingredientes: ['Avocado', 'Shrimp mayo', 'Cream cheese', 'Salmon']
     },
     {
-      nombre: 'Spicy tuna Roll',
+      nombre: 'Spicy Tuna Roll',
       ingredientes: ['Cucumber', 'Spicy tuna']
     },
     {
@@ -86,7 +88,7 @@ export class RollsComponent implements OnInit {
       ingredientes: ['Cucumber', 'Eel', 'Avocado', 'Sesame', 'Eel sauce']
     },
     {
-      nombre: 'Salmon golden crunchy Roll',
+      nombre: 'Salmon Golden Crunchy Roll',
       ingredientes: ['Cucumber', 'Spicy salmon', 'Golden crunchy', 'Eel sauce', 'Spicy sauce']
     },
     {
@@ -114,15 +116,15 @@ export class RollsComponent implements OnInit {
       ingredientes: ['Avocado', 'Shrimp mayo', 'Tuna', 'Red Snapper', 'Shrimp', 'Avocado', 'Yellowtail', 'Salmon']
     },
     {
-      nombre: 'Tekka maki',
+      nombre: 'Tekka Maki',
       ingredientes: ['Tuna']
     },
     {
-      nombre: 'Kappa maki',
+      nombre: 'Kappa Maki',
       ingredientes: ['Cucumber']
     },
     {
-      nombre: 'Salmon skin Roll',
+      nombre: 'Salmon Skin Roll',
       ingredientes: ['Green leaf', 'Cucumber', 'Carrot', 'Salmon skin', 'Bonito flakes']
     },
     {
@@ -131,12 +133,13 @@ export class RollsComponent implements OnInit {
     }
   ];
   
-
+  formatNombreRollo(rollo: string | undefined ): string {
+    return rollo ? rollo.replace(/\s/g, '') : '';
+  }
   //El nombre del rollo aleatorio
   nombreRollo: string 
 
-  //Los ingredientes seleccionados por el usuario
-  ingredientesSeleccionados: string[];
+  
 
   //Funcion que genera un rollo aleatorio
   generarRolloAleatorio() {
@@ -144,7 +147,8 @@ export class RollsComponent implements OnInit {
     this.rolloAleatorio = this.rollos[rolloAleatorioIndex]; // Asigna el objeto Rollo completo
     this.nombreRollo = this.rolloAleatorio.nombre;
      // Actualiza la propiedad src de la etiqueta img
-     this.img.src = `assets/rollos/${this.rolloAleatorio.nombre}.png`;
+    
+     //console.log(this.rolloAleatorio.nombre)
 
     this.ingredientesSeleccionados = []; //Reinicia los valores de  los ingredientes
 }
